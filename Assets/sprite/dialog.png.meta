@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8e42b7bbc0da7cf44b119b5d4e8d3f38
+guid: ee2fc8047253b2946ab0d5a8bb0eb7c3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,8 +47,8 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
-  spriteBorder: {x: 0, y: 303, z: 383, w: 47}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Assets_0
+      name: dialog_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 304
-        width: 16
-        height: 48
+        x: 1
+        y: 0
+        width: 387
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1b13c21b36f6934c9e0606535f9b61f
-      internalID: -2135268131
+      spriteID: 57e2ffe3ba230b149b5e7a0f4b946cf2
+      internalID: -1857717605
       vertices: []
       indices: 
       edges: []
@@ -141,14 +141,14 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Assets_0: -2135268131
+      dialog_0: 1001168652
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

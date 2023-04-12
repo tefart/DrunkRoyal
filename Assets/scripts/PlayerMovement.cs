@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D body;
     private Animator anim;
     private bool grounded;
+    
+
 
     private void Awake()
     {
@@ -32,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
         //Передаёт параметры аниматору
         anim.SetBool("run", horizontalImput != 0);
         anim.SetBool("grounded", grounded);
+
+        
     }
 
 
@@ -46,4 +50,7 @@ public class PlayerMovement : MonoBehaviour
         if(collision.gameObject.tag == "Ground")
             grounded = true;
     }
+
+
+
 }

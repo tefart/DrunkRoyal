@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         else if(horizontalImput < -0.01f)
             transform.localScale = new Vector3(-1 ,1 ,1 );
 
-        if (Input.GetKey(KeyCode.Space) && grounded)
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
             Jump();
 
         //Передаёт параметры аниматору

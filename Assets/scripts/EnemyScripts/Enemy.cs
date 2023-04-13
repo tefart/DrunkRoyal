@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public Animator animator;
+    [SerializeField] private float damage;
 
     public int maxHealth = 100;
     private int currentHealth;
@@ -39,10 +40,9 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.tag == "Player")
         {
-            HeartSystem.health -= 1;
-
+            collision.GetComponent<Health>().TakeDamage(damage);
         }
     }
 }

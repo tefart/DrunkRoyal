@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         else if(horizontalImput < -0.01f)
             transform.localScale = new Vector3(-1 ,1 ,1 );
 
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && IsGrounded())
             Jump();
 
         //Передаёт параметры аниматору

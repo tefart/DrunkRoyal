@@ -14,6 +14,9 @@ public class Health : MonoBehaviour
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRend;
+
+    [Header("Components")]
+    [SerializeField] private Behaviour[] components;
     
 
     
@@ -32,16 +35,23 @@ public class Health : MonoBehaviour
         if (currentHealth > 0)
         {
             //player получил урон
-            anim.SetTrigger("hurt");
             StartCoroutine(Invunerability());
+            anim.SetTrigger("hurt");
         }
         else
         {
-            //player dead
+
             if (!dead)
             {
                 anim.SetTrigger("die");
-                GetComponent<PlayerMovement>().enabled = false;
+
+                foreach (Behaviour component in components)
+                    component.enabled = false;
+
+
+                if (GetComponent<meleeEnemy>() != null)
+                    GetComponent<meleeEnemy>().boxCollider.enabled = false;
+
                 dead = true;
             }
         }
@@ -67,5 +77,8 @@ public class Health : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
     }
-
+    private void Deactivate()
+    {
+        gameObject.SetActive(false);
+    }
 }

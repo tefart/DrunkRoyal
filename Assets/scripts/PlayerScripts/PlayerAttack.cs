@@ -2,12 +2,16 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField]private float attackCooldown;
+    [Header("Attack Parameters")]
+    [SerializeField] private float attackCooldown;
+    [SerializeField] public float attackRange;
+
     private Animator anim;
     private PlayerMovement playerMovement;
     private float cooldownTimer = Mathf.Infinity;
+
+    [Header("Attack Layer")]
     public Transform attackPoint;
-    [SerializeField] public float attackRange;
     public LayerMask enemyLayers;
 
     public int attackDamage = 100;
@@ -42,7 +46,7 @@ public class PlayerAttack : MonoBehaviour
         //Урон атаки
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            enemy.GetComponent<Health>().TakeDamage(attackDamage);
         }
 
 

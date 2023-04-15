@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackCooldown;
     [SerializeField] public float attackRange;
 
+    [SerializeField] private AudioSource attackSound;
     private Animator anim;
     private PlayerMovement playerMovement;
     private float cooldownTimer = Mathf.Infinity;
@@ -25,7 +26,11 @@ public class PlayerAttack : MonoBehaviour
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && cooldownTimer > attackCooldown && playerMovement.canAttack())
+        {
+            
             Attack();
+        }
+            
         cooldownTimer += Time.deltaTime;
 
         
@@ -37,7 +42,7 @@ public class PlayerAttack : MonoBehaviour
         //анимация атаки
         anim.SetTrigger("attack");
         cooldownTimer = 0;
-
+        attackSound.Play();
         //радиус атаки
         Collider2D [] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 

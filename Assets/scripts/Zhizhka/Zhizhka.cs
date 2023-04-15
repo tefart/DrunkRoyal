@@ -9,6 +9,8 @@ public class Zhizhka : MonoBehaviour
     [SerializeField] private float minusPotion;
     [SerializeField] public Health playerHealth;
 
+    [SerializeField] private AudioSource getHealSound;
+
     public float currentZhizhka { get; private set; }
 
     private void Awake()
@@ -19,7 +21,8 @@ public class Zhizhka : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.X) && currentZhizhka != 0)
         {
-           MakeHeal(1);
+            getHealSound.Play();
+            MakeHeal(1);
             
         }
 

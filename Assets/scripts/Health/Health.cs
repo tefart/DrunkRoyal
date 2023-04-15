@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
     public float currentHealth { get; private set; }
     private Animator anim;
     private bool dead;
+    [SerializeField] private AudioSource getDmgSound;
+    [SerializeField] private AudioSource getDieSound;
 
     [Header("iFrames")]
 
@@ -31,6 +33,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(float _damage) 
     {
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
+        getDmgSound.Play();
 
         if (currentHealth > 0)
         {
@@ -44,6 +47,7 @@ public class Health : MonoBehaviour
             if (!dead)
             {
                 anim.SetTrigger("die");
+                getDieSound.Play();
 
                 foreach (Behaviour component in components)
                     component.enabled = false;

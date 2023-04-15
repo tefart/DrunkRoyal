@@ -4,7 +4,10 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float RunSpeed;
     [SerializeField] private float JumpSpeed;
-    [SerializeField] private LayerMask groundLayer; 
+    [SerializeField] private LayerMask groundLayer;
+
+    [SerializeField] private AudioSource jumpSound;
+
     private Rigidbody2D body;
     private Animator anim;
     private CapsuleCollider2D capsuleCollider;
@@ -44,7 +47,9 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         body.velocity = new Vector2(body.velocity.x, JumpSpeed);
-        
+        jumpSound.Play();
+
+
     }
 
     private bool IsGrounded()
